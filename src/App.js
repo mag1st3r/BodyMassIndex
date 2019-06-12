@@ -17,10 +17,8 @@ const inputNames = {
 
 class ParametersInput extends React.Component {
   handleChange = (e) => {
-    const bmi = this.props.bmi;
-
-    this.props.onHeightChange ? this.props.onHeightChange(e.target.value, bmi):
-    this.props.onWeightChange(e.target.value, bmi);
+    this.props.onHeightChange ? this.props.onHeightChange(e.target.value):
+    this.props.onWeightChange(e.target.value);
   };
 
   render() {
@@ -74,24 +72,21 @@ function ResultBmi(props) {
 
 class Calculator extends React.Component {
   state = {
-    bmi: null,
     height: 90,
     weight: 45
   };
 
 
-  onHeightChange = (height, bmi) => {
+  onHeightChange = (height) => {
     this.setState({
         height: height,
-        bmi: bmi
     });
 
   };
 
-  onWeightChange = (weight, bmi) =>{
+  onWeightChange = (weight) =>{
     this.setState({
         weight: weight,
-        bmi: bmi
     });
 
   };
